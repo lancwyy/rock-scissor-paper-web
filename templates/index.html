@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="top-controls">
+            <button id="lang-toggle" class="icon-btn" aria-label="Toggle Language">EN/繁</button>
+            <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">🌙</button>
+        </div>
+        <header>
+            <h1 data-i18n="title">Rock Paper Scissors</h1>
+        </header>
+
+        <div class="game-area">
+            <div class="scoreboard">
+                <div class="score-card win">
+                    <span class="score-label" data-i18n="wins">Wins</span>
+                    <span class="score-val" id="score-win">0</span>
+                </div>
+                <div class="score-card lose">
+                    <span class="score-label" data-i18n="losses">Losses</span>
+                    <span class="score-val" id="score-lose">0</span>
+                </div>
+                <div class="score-card tie">
+                    <span class="score-label" data-i18n="ties">Ties</span>
+                    <span class="score-val" id="score-tie">0</span>
+                </div>
+            </div>
+
+            <p data-i18n="subtitle">Choose your weapon!</p>
+            <div class="choices">
+                <button class="choice-btn" id="scissors" data-choice="scissors">
+                    <span class="emoji">✂️</span>
+                    <span class="label" data-i18n="scissors">Scissors</span>
+                </button>
+                <button class="choice-btn" id="rock" data-choice="rock">
+                    <span class="emoji">🪨</span>
+                    <span class="label" data-i18n="rock">Rock</span>
+                </button>
+                <button class="choice-btn" id="paper" data-choice="paper">
+                    <span class="emoji">📄</span>
+                    <span class="label" data-i18n="paper">Paper</span>
+                </button>
+            </div>
+
+            <div id="result-area" class="hidden">
+                <div class="match-up">
+                    <div class="player-move">
+                        <span id="user-emoji"></span>
+                        <p data-i18n="you">You</p>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="computer-move">
+                        <span id="computer-emoji"></span>
+                        <p data-i18n="computer">Computer</p>
+                    </div>
+                </div>
+                <h2 id="result-text"></h2>
+                <button id="play-again-btn" data-i18n="playAgain">Play Again</button>
+            </div>
+
+            <div class="history-container">
+                <h3 data-i18n="history">Game History</h3>
+                <ul id="history-list">
+                    <!-- History items will be populated here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
